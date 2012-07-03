@@ -13,15 +13,15 @@ void main()
 {
 
 	float aoLight		= 1.0 - length( vVertex.xyz ) * ( 0.0008 + ( power * 0.001 ) );
-	//float aoLight	= 1.0 - length( vVertex.xyz ) * (0.0015+0.0001);
+
 	float aoDark		= aoLight * 0.01;
 	
 	float ceiling		= 0.0;
 	if( vNormal.y > 0.5 ) ceiling = 1.0;
-	//discard;
+
 	
 	float yPer =  1.0 - clamp( abs(vVertex.y-ceilingY)/(2.*roomDims.y), 0.0, 1.0 );
-	//float yPer =  1.0 - clamp( vVertex.y/roomDims.y, 0.0, 1.0 );
+
 	float ceilingGlow	= pow( yPer, 2.0 ) * 0.35;
 	ceilingGlow			+= pow( yPer, 100.0 );
 	ceilingGlow			+= pow( max( yPer - 0.7, 0.0 ), 3.0 ) * 4.0;
